@@ -9,4 +9,7 @@ watchdog = "*"
 [packages]
 flask = "*"
 python-dotenv = "*"
-
+flask-sqlalchemy = "*"
+flask-wtf = "*"
+bootstrap-flask = "*"
+flask-moment = "*"
