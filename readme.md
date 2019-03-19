@@ -11,3 +11,11 @@ $ flask init_db
 $ flask fake --count 20
 $ falsk run
 ```
+
+## 可选
+- 创建.env文件
+- 设置SECRET_KEY 和 DATABASE_URI
+```.env
+SECRET_KEY = 'secret-key'
+DATABASE_URI = 'sqlite:///data.sqlite3'
+```
