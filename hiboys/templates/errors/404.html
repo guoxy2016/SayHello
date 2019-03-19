@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block title %}页面不存在{% endblock %}
+
+{% block content %}
+    <div style="text-align: center;">
+        <p>您所查看的页面不存在, 请查看网页地址是否正确.</p>
+        <a href="{{ url_for('index') }}">返回主页</a>
+    </div>
+{% endblock %}
+
+{% block footer %}{% endblock %}

@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block title %}500-ServerError{% endblock %}
+
+{% block content %}
+    <div style="text-align: center;">
+        <p>服务器错误</p>
+        <a href="{{ url_for('index') }}">返回主页</a>
+    </div>
+{% endblock %}
+
+{% block footer %}{% endblock %}

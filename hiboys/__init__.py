@@ -1,8 +1,7 @@
-import click
-from flask import Flask
-from flask_sqlalchemy import SQLAlchemy
+from flask import Flask, render_template
 from flask_bootstrap import Bootstrap
 from flask_moment import Moment
+from flask_sqlalchemy import SQLAlchemy
 
 app = Flask('hiboys')
 app.jinja_env.trim_blocks = True
@@ -13,7 +12,8 @@ db = SQLAlchemy(app)
 bootstrap = Bootstrap(app)
 moment = Moment(app)
 
-from hiboys import views
+from hiboys import views, commands
+# from hiboys.commands import *
 
 
 @app.shell_context_processor
@@ -21,13 +21,11 @@ def make_shell_context():
     return dict(db=db, bootstrap=bootstrap)
 
 
-@app.cli.command(name='init-db')
-@click.option('--drop', is_flag=True, help='drop after create')
-def init_db(drop):
-    """initialize database."""
-    if drop:
-        click.confirm('Drop database?', abort=True)
-        db.drop_all()
-        click.echo('drop all database.')
-    db.create_all()
-    click.echo('database initialized')
+@app.errorhandler(404)
+def not_found(e):
+    return render_template('errors/404.html'), 404
+
+
+@app.errorhandler(500)
+def server_err(e):
+    return render_template('errors/500.html'), 500
