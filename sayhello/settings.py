@@ -1,8 +1,9 @@
 import os
 
-from sayhello import app
-
-database_uri = 'sqlite:///' + os.path.join(app.instance_path, 'data.sqlite3')
+# from sayhello import app
+# database_uri = 'sqlite:///' + os.path.join(app.instance_path, 'data.sqlite3')
+BASEDIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+database_uri = 'sqlite:///' + os.path.join(BASEDIR, 'data.sqlite3')
 
 SECRET_KEY = os.getenv('SECRET_KEY', 'development_secret_key')
 SQLALCHEMY_DATABASE_URI = os.getenv('DATABASE_URI', database_uri)

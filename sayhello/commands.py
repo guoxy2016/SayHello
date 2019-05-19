@@ -4,7 +4,7 @@ from sayhello import db, app
 from sayhello.models import Message
 
 
-@app.cli.command(name='init_db')
+@app.cli.command()
 @click.option('--drop', is_flag=True, help='drop after create')
 def init_db(drop):
     """initialize database."""
@@ -16,9 +16,9 @@ def init_db(drop):
     click.echo('database initialized')
 
 
-@app.cli.command(name='fake')
+@app.cli.command(name='forge')
 @click.option('--count', default=20, help='Quantity of messages, default is 20.')
-def faker_data(count):
+def forge(count):
     """Generate faker messages"""
     from faker import Faker
 
