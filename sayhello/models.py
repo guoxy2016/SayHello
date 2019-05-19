@@ -1,6 +1,6 @@
 from datetime import datetime
 
-from hiboys import db
+from sayhello import db
 
 
 class Message(db.Model):

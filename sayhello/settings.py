@@ -1,6 +1,6 @@
 import os
 
-from hiboys import app
+from sayhello import app
 
 database_uri = 'sqlite:///' + os.path.join(app.instance_path, 'data.sqlite3')
 

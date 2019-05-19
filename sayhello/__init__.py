@@ -1,10 +1,10 @@
-from flask import Flask, render_template
+from flask import Flask
 from flask_bootstrap import Bootstrap
 from flask_moment import Moment
 from flask_sqlalchemy import SQLAlchemy
 from flask_debugtoolbar import DebugToolbarExtension
 
-app = Flask('hiboys')
+app = Flask('sayhello')
 app.jinja_env.trim_blocks = True
 app.jinja_env.lstrip_blocks = True
 app.config.from_pyfile('settings.py')
@@ -14,8 +14,7 @@ bootstrap = Bootstrap(app)
 moment = Moment(app)
 toolbar = DebugToolbarExtension(app)
 
-from hiboys import views, commands, errors
-# from hiboys.commands import *
+from sayhello import views, commands, errors
 
 
 @app.shell_context_processor

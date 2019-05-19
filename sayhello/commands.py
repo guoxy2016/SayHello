@@ -1,7 +1,7 @@
 import click
 
-from hiboys import db, app
-from hiboys.models import Message
+from sayhello import db, app
+from sayhello.models import Message
 
 
 @app.cli.command(name='init_db')

@@ -1,8 +1,8 @@
 from flask import redirect, url_for, render_template, flash
 
-from hiboys import app, db
-from hiboys.forms import HelloForm
-from hiboys.models import Message
+from sayhello import app, db
+from sayhello.forms import HelloForm
+from sayhello.models import Message
 
 
 @app.route('/', methods=['GET', 'POST'])
