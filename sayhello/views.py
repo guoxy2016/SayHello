@@ -19,5 +19,5 @@ def index():
         db.session.add(message)
         db.session.commit()
         flash('发布成功')
-        return redirect(url_for('index'))
+        return redirect(url_for('index', page=1))
     return render_template('index.html', messages=messages, form=form, pagination=pagination)
