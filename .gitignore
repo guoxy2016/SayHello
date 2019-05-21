@@ -3,3 +3,5 @@ __pycache__
 .idea/
 data.sqlite3
 Pipfile.lock
+.coverage
+htmlcov

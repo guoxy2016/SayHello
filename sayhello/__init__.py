@@ -1,8 +1,8 @@
 from flask import Flask
 from flask_bootstrap import Bootstrap
+from flask_debugtoolbar import DebugToolbarExtension
 from flask_moment import Moment
 from flask_sqlalchemy import SQLAlchemy
-from flask_debugtoolbar import DebugToolbarExtension
 
 app = Flask('sayhello')
 app.jinja_env.trim_blocks = True
@@ -14,12 +14,9 @@ bootstrap = Bootstrap(app)
 moment = Moment(app)
 toolbar = DebugToolbarExtension(app)
 
-from sayhello import views, commands, errors
+from sayhello import views, commands, errors  # noqa
 
 
 @app.shell_context_processor
 def make_shell_context():
     return dict(db=db, bootstrap=bootstrap)
-
-
-
