@@ -21,10 +21,11 @@ from sayhello import views, commands, errors  # noqa
 def make_shell_context():
     return dict(db=db, bootstrap=bootstrap)
 
-#
-# @app.after_request
-# def query_profiler(response):
-#     for q in get_debug_queries():
-#         print('%s\n\n%s\n\n%s\n\n%s\n\n%s\n\n%s\n' % (q.statement, q.parameters, q.start_time, q.end_time, q.duration, q.context))
-#         print('-' * 120)
-#     return response
+
+@app.after_request
+def query_profiler(response):
+    for q in get_debug_queries():
+        print('%s\n\n%s\n\n%s\n\n%s\n\n%s\n\n%s\n' % (
+        q.statement, q.parameters, q.start_time, q.end_time, q.duration, q.context))
+        print('-' * 120)
+    return response
